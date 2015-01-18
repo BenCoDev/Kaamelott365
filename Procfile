@@ -1,1 +1,1 @@
-run kaamelott365.py
+web gunicorn kaamelott365.py
