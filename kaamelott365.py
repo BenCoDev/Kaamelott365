@@ -11,7 +11,7 @@ from numpy import genfromtxt
 import random
 # import urllib2
 import requests
-from bs4 import BeautifulSoup
+import BeautifulSoup
 import tweepy, sys
 global result
 
