@@ -1,4 +1,13 @@
-img/*
-.ipynb_checkpoints/*
-tokens.dat
 .DS_Store
+
+# Image folder
+img/*
+
+# iPython notebook checkpoints
+.ipynb_checkpoints/*
+
+# Auth files
+tokens.dat
+
+# Server config files
+*.yaml
