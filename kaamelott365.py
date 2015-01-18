@@ -131,10 +131,11 @@ def main():
     tokens = genfromtxt('tokens.dat',dtype=None)
     
     tweet_citation(tokens)
-
-# if __name__ == "__main__":
-#     result = fill_citation_dict()
-#     main()
+    
+result = fill_citation_dict()
+if __name__ == "__main__":
+    # result = fill_citation_dict()
+    main()
 
     # try:
     #     main()

@@ -1,1 +1,1 @@
-worker: python kaamelott365.py --log-file -
+myworker: python kaamelott365.py
