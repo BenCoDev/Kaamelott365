@@ -1,3 +1,4 @@
 img/*
 .ipynb_checkpoints/*
 tokens.dat
+.DS_Store
