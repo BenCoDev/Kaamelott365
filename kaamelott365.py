@@ -11,7 +11,7 @@ from numpy import genfromtxt
 import random
 # import urllib2
 import requests
-import BeautifulSoup
+from bs4 import BeautifulSoup
 import tweepy, sys
 global result
 
@@ -127,14 +127,14 @@ def tweet_citation(tokens):
         print "Shutting down script..."
 
 
-def main():
-    tokens = genfromtxt('tokens.dat',dtype=None)
+# def main():
+#     tokens = genfromtxt('tokens.dat',dtype=None)
     
-    tweet_citation(tokens)
+#     tweet_citation(tokens)
 
-if __name__ == "__main__":
-    result = fill_citation_dict()
-    main()
+# if __name__ == "__main__":
+#     result = fill_citation_dict()
+#     main()
 
     # try:
     #     main()
