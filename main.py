@@ -112,7 +112,7 @@ def tweet_citation(tokens):
     
     chosen_citation = choose_citation()
 
-    while (len(chosen_citation) > 140):
+    while (len(chosen_citation) > 140 or len(chosen_citation) == 0):
         chosen_citation = choose_citation()
 
     try:
