@@ -11,3 +11,5 @@ tokens.dat
 
 # Server config files
 *.yaml
+
+*.pyc
