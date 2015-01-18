@@ -9,7 +9,8 @@
 
 from numpy import genfromtxt
 import random
-import urllib2
+# import urllib2
+import requests
 from bs4 import BeautifulSoup
 import tweepy, sys
 global result
@@ -30,7 +31,8 @@ def clean_quote(quote):
 def fill_citation_dict():
     base_url = 'http://fr.wikiquote.org'
     url = 'http://fr.wikiquote.org/wiki/Kaamelott'
-    r = urllib2.urlopen(url).read()
+    r = requests.get(url).text
+    # r = urllib2.urlopen(url).read()
     soup = BeautifulSoup(r)
     # Initialize variables
     perso_names = []
@@ -54,7 +56,8 @@ def fill_citation_dict():
 
             elif e.name == 'dl': # if Voir le recueil exception
                 next_url = e.find('a').get('href')
-                deeper_request = urllib2.urlopen(base_url + next_url).read()
+                # deeper_request = urllib2.urlopen(base_url + next_url).read()
+                deeper_request = requests.get(base_url + next_url).text
                 quote_lists.append(get_citation(deeper_request))
                 break
 
