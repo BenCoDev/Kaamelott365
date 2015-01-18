@@ -1,1 +1,1 @@
-web gunicorn kaamelott365.py
+worker: python kaamelott365.py --log-file -
