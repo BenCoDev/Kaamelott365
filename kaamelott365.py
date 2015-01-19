@@ -10,13 +10,13 @@
 from numpy import genfromtxt
 import random
 # import urllib2
-from BeautifulSoup import BeautifulSoup
+import BeautifulSoup
 import requests
 import tweepy, sys
 global result
 
 def get_citation(html):
-    soup = BeautifulSoup(html)
+    soup = BeautifulSoup.BeautifulSoup(html)
     quotes = []
     for quote in soup.find_all('span', 'citation'):
         if quote.string != None:
@@ -33,7 +33,7 @@ def fill_citation_dict():
     url = 'http://fr.wikiquote.org/wiki/Kaamelott'
     r = requests.get(url).text
     # r = urllib2.urlopen(url).read()
-    soup = BeautifulSoup(r)
+    soup = BeautifulSoup.BeautifulSoup(r)
     # Initialize variables
     perso_names = []
     quote_lists = []
