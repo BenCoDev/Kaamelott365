@@ -107,13 +107,14 @@ def choose_citation():
         perso_random = perso_names[perso_random_index]
     
     output = result[perso_random][citation_index]
-    while len(output) == 0:
-        output = result[perso_random][citation_index]
-        
-    output = '"' + output + '"'
-
+    if len(output) > 0:
+        output = '"' + output + '"'
+    hashtag = ' #Kaamelott'
     
-    if len(output) + len(perso_random) + 2 > 140: #if too many char to put citation and signature
+    if len(output) + len(perso_random) + 2 < 140 - len(hashtag):
+        output = output + '- ' + perso_random + hashtag
+    
+    elif len(output) + len(perso_random) + 2 > 140: #if too many char to put citation and signature
         char_for_sign = 140 - len(perso_random) - 8    
         
         if output[char_for_sign - 1] != ' ': #if last char before sign is not a space, try one before
