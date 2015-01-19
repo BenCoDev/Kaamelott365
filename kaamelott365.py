@@ -38,6 +38,7 @@ def fill_citation_dict():
     perso_names = []
     quote_lists = []
     quote_list = []
+    print soup.find_all('span', 'mw-headline')
     for name in soup.find_all('span', 'mw-headline'):
         names_to_exclude = ['Extraits de dialogues','Citations des personnages', u'Citations des bandes dessin\xe9es']
         if name.string not in names_to_exclude:
