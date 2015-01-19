@@ -10,13 +10,15 @@
 from numpy import genfromtxt
 import random
 # import urllib2
-import BeautifulSoup
+from bs4 import BeautifulSoup
 import requests
 import tweepy, sys
+import os
 global result
 
+
 def get_citation(html):
-    soup = BeautifulSoup.BeautifulSoup(html)
+    soup = BeautifulSoup(html)
     quotes = []
     for quote in soup.find_all('span', 'citation'):
         if quote.string != None:
@@ -33,12 +35,11 @@ def fill_citation_dict():
     url = 'http://fr.wikiquote.org/wiki/Kaamelott'
     r = requests.get(url).text
     # r = urllib2.urlopen(url).read()
-    soup = BeautifulSoup.BeautifulSoup(r)
+    soup = BeautifulSoup(r)
     # Initialize variables
     perso_names = []
     quote_lists = []
     quote_list = []
-    print soup.find_all('span', 'mw-headline')
     for name in soup.find_all('span', 'mw-headline'):
         names_to_exclude = ['Extraits de dialogues','Citations des personnages', u'Citations des bandes dessin\xe9es']
         if name.string not in names_to_exclude:
@@ -69,6 +70,7 @@ def fill_citation_dict():
     result = dict(zip(perso_names, quote_lists))
     return result
 
+result = fill_citation_dict()
 # ## Some perso have no citation on this url, follow the next url and scrap their citation and save it in the dict
 
 # ## Pick a random citation from a random person
@@ -103,10 +105,10 @@ def choose_citation():
     return output
 
 def tweet_citation():
-    consumer_key = environ['CONS_KEY']
-    consumer_secret = environ['CONS_SEC']
-    access_token = environ['ACC_TOK']
-    access_token_secret = environ['ACC_TOK_SECR']
+    consumer_key = os.environ['CONS_KEY']
+    consumer_secret = os.environ['CONS_SEC']
+    access_token = os.environ['ACC_TOK']
+    access_token_secret = os.environ['ACC_TOK_SECR']
     
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
@@ -130,13 +132,11 @@ def tweet_citation():
 
 def main():
     # tokens = genfromtxt('tokens.dat',dtype=None)
-    result = fill_citation_dict()
     tweet_citation()
 
 if __name__ == "__main__":
     # result = fill_citation_dict()
     main()
-
     # try:
     #     main()
     # except:
