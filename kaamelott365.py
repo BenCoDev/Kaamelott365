@@ -107,7 +107,7 @@ def choose_citation():
         perso_random = perso_names[perso_random_index]
     
     output = result[perso_random][citation_index]
-    while len(output) = 0:
+    while len(output) == 0:
         output = result[perso_random][citation_index]
         
     output = '"' + output + '"'
