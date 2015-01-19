@@ -101,11 +101,11 @@ def choose_citation():
     output = '"' + result[perso_random][citation_index] + '"' + '- ' + perso_random
     return output
 
-def tweet_citation(tokens):
-    consumer_key = tokens[0]
-    consumer_secret = tokens[1]
-    access_token = tokens[2]
-    access_token_secret = tokens[3]
+def tweet_citation():
+    consumer_key = CONS_KEY
+    consumer_secret = CONS_SEC
+    access_token = ACC_TOK
+    access_token_secret = ACC_TOK_SECR
     
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
@@ -128,9 +128,9 @@ def tweet_citation(tokens):
 
 
 def main():
-    tokens = genfromtxt('tokens.dat',dtype=None)
+    # tokens = genfromtxt('tokens.dat',dtype=None)
     result = fill_citation_dict()
-    tweet_citation(tokens)
+    tweet_citation()
 
 if __name__ == "__main__":
     # result = fill_citation_dict()
