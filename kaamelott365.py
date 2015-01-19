@@ -81,6 +81,7 @@ result = fill_citation_dict()
 def test(nb_trial):
     nb_error = 0
     for i in range(0, nb_trial):
+        perso_names = result.keys()
         perso_random_index = random.randrange(0,len(perso_names))
         perso_random = perso_names[perso_random_index]
 
