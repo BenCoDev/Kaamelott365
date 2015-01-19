@@ -11,11 +11,11 @@ from numpy import genfromtxt
 import random
 # import urllib2
 import requests
-import BeautifulSoup
 import tweepy, sys
 global result
 
 def get_citation(html):
+    import BeautifulSoup
     soup = BeautifulSoup(html)
     quotes = []
     for quote in soup.find_all('span', 'citation'):
@@ -29,6 +29,7 @@ def clean_quote(quote):
     return quote
 
 def fill_citation_dict():
+    import BeautifulSoup
     base_url = 'http://fr.wikiquote.org'
     url = 'http://fr.wikiquote.org/wiki/Kaamelott'
     r = requests.get(url).text
