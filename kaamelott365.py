@@ -10,7 +10,7 @@
 from numpy import genfromtxt
 import random
 # import urllib2
-from bs4 import BeautifulSoup
+import BeautifulSoup
 import requests
 import tweepy, sys
 global result
