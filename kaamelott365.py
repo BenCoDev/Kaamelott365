@@ -16,6 +16,7 @@ import tweepy, sys
 global result
 
 def get_citation(html):
+    import BeautifulSoup
     soup = BeautifulSoup(html)
     quotes = []
     for quote in soup.find_all('span', 'citation'):
@@ -29,6 +30,7 @@ def clean_quote(quote):
     return quote
 
 def fill_citation_dict():
+    import BeautifulSoup
     base_url = 'http://fr.wikiquote.org'
     url = 'http://fr.wikiquote.org/wiki/Kaamelott'
     r = requests.get(url).text
@@ -76,6 +78,7 @@ def fill_citation_dict():
 
 
 def test(nb_trial):
+    import BeautifulSoup
     nb_error = 0
     for i in range(0, nb_trial):
         perso_random_index = random.randrange(0,len(perso_names))
@@ -89,6 +92,7 @@ def test(nb_trial):
     print 'number of errors is %i on %i trials' % (nb_error, nb_trial) 
 
 def choose_citation():
+    import BeautifulSoup
     perso_names = result.keys()
     perso_random_index = random.randrange(0,len(perso_names))
     perso_random = perso_names[perso_random_index]
@@ -102,6 +106,7 @@ def choose_citation():
     return output
 
 def tweet_citation():
+    import BeautifulSoup
     consumer_key = environ['CONS_KEY']
     consumer_secret = environ['CONS_SEC']
     access_token = environ['ACC_TOK']
@@ -128,11 +133,13 @@ def tweet_citation():
 
 
 def main():
+    import BeautifulSoup
     # tokens = genfromtxt('tokens.dat',dtype=None)
     result = fill_citation_dict()
     tweet_citation()
 
 if __name__ == "__main__":
+    import BeautifulSoup
     # result = fill_citation_dict()
     main()
 
