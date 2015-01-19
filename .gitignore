@@ -7,7 +7,7 @@ img/*
 .ipynb_checkpoints/*
 
 # Auth files
-tokens.dat
+.env
 
 # Server config files
 *.yaml
