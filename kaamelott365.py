@@ -102,10 +102,10 @@ def choose_citation():
     return output
 
 def tweet_citation():
-    consumer_key = CONS_KEY
-    consumer_secret = CONS_SEC
-    access_token = ACC_TOK
-    access_token_secret = ACC_TOK_SECR
+    consumer_key = environ['CONS_KEY']
+    consumer_secret = environ['CONS_SEC']
+    access_token = environ['ACC_TOK']
+    access_token_secret = environ['ACC_TOK_SECR']
     
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
