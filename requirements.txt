@@ -4,8 +4,10 @@ chardet==3.0.4
 idna==2.9
 numpy==1.18.2
 oauthlib==3.1.0
+PySocks==1.7.1
 requests==2.4.3
 requests-oauthlib==0.4.1
+sentry-sdk==0.14.3
 six==1.7.3
 soupsieve==2.0
 tweepy==3.7.0
