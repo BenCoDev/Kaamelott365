@@ -1,4 +1,12 @@
-numpy==1.9.1
+beautifulsoup4==4.9.0
+certifi==2020.4.5.1
+chardet==3.0.4
+idna==2.9
+numpy==1.18.2
+oauthlib==3.1.0
 requests==2.4.3
-beautifulsoup4==4.3.2
-tweepy==3.1.0
+requests-oauthlib==0.4.1
+six==1.7.3
+soupsieve==2.0
+tweepy==3.7.0
+urllib3==1.25.9
