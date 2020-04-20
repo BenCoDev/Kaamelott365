@@ -21,7 +21,7 @@ class TweetApi(object):
     def tweet(self, quote):
         try:
             self.api.update_status(quote)
-            print("Successfully tweeted:")
+            print("Successfully tweeted: {}".format(quote))
         except TweepError as e:
             with configure_scope() as scope:
                 scope.set_extra("Message", e.response.text)
